@@ -30,12 +30,21 @@
 
     $config = Get-Content C:\DBStat\config.json | ConvertFrom-Json;
 
-    $SrcPath = $config.adminSrcRoot + $FolderName
+    if($FolderName -eq "root") {
+        $SrcPath = $config.srcRoot
+    } else {
+        $SrcPath = $config.adminSrcRoot + $FolderName;
+    }
+
     $TablePath = $config.outRoot + "\Tables-" + $DbName + ".txt"
 
-    $OutPath = $config.outRoot + "\admin\" + $FolderName
+    if($FolderName -eq "root") {
+        $OutPath = $config.outRoot
+    } else {
+        $OutPath = $config.outRoot + "\admin\" + $FolderName
+    }
 
-    $OutFilePath = $OutPath + "\" + $DbName + "-Tables-R1.txt"
+    $OutFilePath = $OutPath + "\Tables-" + $DbName + "-R1.txt"
 
     Write-Host "> Source Folder:" $SrcPath
     Write-Host "> Table List   :" $TablePath
@@ -47,18 +56,30 @@
         New-Item -ItemType Directory -Path $OutPath
     }
 
+    $cnt = 0;
+
     foreach($Table in Get-Content $TablePath) {
         $Table = $Table.trim()
 
-        $Results = Get-ChildItem $SrcPath -Recurse | Select-String -Pattern $Table | Select-Object FileName, Pattern, LineNumber, Line
+        if($cnt -gt 0) {
+            $Contents += "`n"
+        }
+
+        Write-Verbose -Message "Searching for ... $Table"
+
+        $Key = "FROM " + $Table
+
+        $Results = Get-ChildItem $SrcPath -Include ("*.asp", "*.sql") -Recurse  | Select-String -Pattern $Key
         $Contents += ("{0,-30}" -f $Table)
 
         if($Results.Count -eq 0) {
             $Contents += ("{0,  7}" -f $Results.Count)
         } else {
+            
             $Contents += ("{0,  7}" -f $Results.Count) + " <====="
         }
-        $Contents += "`n"
+
+        $cnt++
     }
 
     if($OutType -eq "C") {

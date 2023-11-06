@@ -18,5 +18,11 @@ Invoke-ColumnUsage admin\etc C
 # alter문 추출
 Invoke-ColumnAlter admin\etc F
 
+<# 
+------------------------------
+   cadian db
+------------------------------
+#>
+
 # DB명을 파라메터로 수행 가능
-# Get-TableUsage etc cadian C
+Get-TableUsage etc cadian F

@@ -19,3 +19,8 @@ Get-Help Get-TableUsage
 Get-Table cadian F -Verbose
 
 Get-Table NEW_CADIAN F -Verbose
+
+# 테이블 전체 조사하기
+Get-TableUsage root cadian F -Verbose
+
+Get-TableUsage root NEW_CADIAN F -Verbose

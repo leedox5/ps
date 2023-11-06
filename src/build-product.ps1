@@ -18,7 +18,7 @@ Invoke-ColumnUsage admin\product F
 # alter문 추출
 Invoke-ColumnAlter admin\product F
 
-Get-TableUsage product cadian C
+Get-TableUsage product cadian F
 
 # target 폴더에 생성된 alter 스크립트를 수행(주석 해제후 사용) 
 # Set-Column NEW_CADIAN 테이블명-ALTER.txt  

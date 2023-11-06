@@ -33,7 +33,7 @@
 
     $OutPath = $config.outRoot + "\www\" + $FolderName
 
-    $OutFilePath = $OutPath + "\" + $DbName + "-Tables-R1.txt"
+    $OutFilePath = $OutPath + "\Tables-" + $DbName + "-R1.txt"
 
     Write-Host "> Source Folder:" $SrcPath
     Write-Host "> Table List   :" $TablePath
@@ -48,7 +48,7 @@
     foreach($Table in Get-Content $TablePath) {
         $Table = $Table.trim()
 
-        $Results = Get-ChildItem $SrcPath -Recurse | Select-String -Pattern $Table | Select-Object FileName, Pattern, LineNumber, Line
+        $Results = Get-ChildItem $SrcPath -Recurse | Select-String -Pattern $Table
         $Contents += ("{0,-30}" -f $Table)
 
         if($Results.Count -eq 0) {

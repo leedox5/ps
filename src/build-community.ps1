@@ -36,4 +36,4 @@ Invoke-ColumnUsage www\us\community F
 Invoke-ColumnAlter www\us\community F
 
 # DB명을 파라메터로 수행 가능
-#Get-TableUsage community cadian C
+Get-TableUsage community cadian F -Verbose

@@ -30,7 +30,7 @@
 
     $config = Get-Content C:\DBStat\config.json  | ConvertFrom-Json;
 
-    $SrcFilePath = $config.outRoot + "\" + $FolderName + "\" + $DbName + "-Tables-R1.txt";
+    $SrcFilePath = $config.outRoot + "\" + $FolderName + "\Tables-" + $DbName + "-R1.txt";
 
     $sqlPath = $PSScriptRoot + "\col.sql"
 
