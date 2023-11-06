@@ -28,7 +28,7 @@
         [string]$OutType
     )
 
-    $config = Get-Content ($PSScriptRoot + "\config.json") | ConvertFrom-Json;
+    $config = Get-Content C:\DBStat\config.json | ConvertFrom-Json;
 
     $Contents = "";
 

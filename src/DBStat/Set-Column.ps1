@@ -10,7 +10,7 @@
     F  - 파일 출력
 
 .EXAMPLE
-    Set-Column NEW_CADIAN product\TB_PRODUCT-ALTER.txt
+    Set-Column NEW_CADIAN TB_PRODUCT-ALTER.txt
 #>
 
 function Set-Column {
@@ -22,10 +22,13 @@ function Set-Column {
         [string]$SqlPath
     )
 
-    $config = Get-Content ($PSScriptRoot + "\config.json") | ConvertFrom-Json;
+    $config = Get-Content C:\DBStat\config.json | ConvertFrom-Json;
 
-    $SrcPath = $config.outRoot + "\" + $SqlPath;
+    $SrcPath = $config.target + "\" + $SqlPath;
 
-    sqlcmd -U $config.dbUser -P $config.dbPass -d $DbName -h -1 -i $SrcPath
-
+    if(!(Test-Path -Path $SrcPath)) {
+        Write-Error "File not found : $SrcPath"
+    } else {
+        sqlcmd -U $config.dbUser -P $config.dbPass -d $DbName -h -1 -i $SrcPath
+    }
 }

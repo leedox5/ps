@@ -1,11 +1,22 @@
-## import a module by specifying the manifest
+# 소개
+Windows PowerShell 스크립트를 이용하여
+데이터베이스의 테이블 컬럼를 추출하고
+asp 소스내에서의 사용여부를 분석하여
+컬럼을 정리할 수 있는 스크립트를 추출합니다.
 
-    Import-Module .\DBStat.psd1
+# 사용방법
+- C:\DBStat 을 생성하고 DBStat 파일들을 배치합니다.
+    파일 구조
+C:\DBStat : PowerShell script 구동 파일 build*.ps1
+├─DBStat  : PowerShell script 파일들 (*.ps1, *.psd1, *.psm1)
+├─out     : 폴더별 작업파일 배치
+└─target  : 최종 ALTER 스크립트 파일
 
-## we can confirm that the module is loaded
+- 시작버튼에서 Window PowerShell ISE 를 실행
+- build*.ps1 실행(각파일의 설명 참조)
+  1. build-start.ps1
+  2. build-product.ps1
+  3. build-etc.ps1
+  4. build-community.ps1
+  5. build-payment.ps1
 
-    Get-Module DBStat
-
-## now that the module is imported we can see what commands are available
-
-    Get-Command -Module DBStat

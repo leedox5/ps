@@ -1,8 +1,7 @@
-﻿function Get-TableUsage {
-
+﻿function Get-TableUsageHome {
 <#
 .DESCRIPTION
-    테이블의 사용여부를 조사하여 결과를 콘솔 또는 파일로 출력
+    테이블의 사용여부를 조사하여 결과를 콘솔 또는 파일로 출력(wwww용)
 
 .PARAMETER FolderName
     검색할 패스의 root 위치(폴더명)
@@ -15,9 +14,8 @@
     F  - 파일 출력
 
 .EXAMPLE
-    Get-TableUsage community NEW_CADIAN C
+    Get-TableUsageHome kr\community NEW_CADIAN C
 #>
-
     [CmdletBinding()]
     param (
         [Parameter(Mandatory, Position=0)]
@@ -30,10 +28,10 @@
 
     $config = Get-Content C:\DBStat\config.json | ConvertFrom-Json;
 
-    $SrcPath = $config.adminSrcRoot + $FolderName
+    $SrcPath = $config.wwwSrcRoot + $FolderName
     $TablePath = $config.outRoot + "\Tables-" + $DbName + ".txt"
 
-    $OutPath = $config.outRoot + "\admin\" + $FolderName
+    $OutPath = $config.outRoot + "\www\" + $FolderName
 
     $OutFilePath = $OutPath + "\" + $DbName + "-Tables-R1.txt"
 

@@ -15,7 +15,7 @@
     F  - 파일 출력
 
 .EXAMPLE
-    Get-ColumnAlter community TB_BBS C
+    Get-ColumnAlter admin\community TB_BBS C
 #>
 
     [CmdletBinding()]
@@ -28,13 +28,17 @@
         [string]$OutType
     )
 
-    $config = Get-Content ($PSScriptRoot + "\config.json") | ConvertFrom-Json;
+    $config = Get-Content C:\DBStat\config.json | ConvertFrom-Json;
 
     $Contents = "";
     $Cnt = 0;
 
-    $SrcPath = $config.outRoot + "\" + $FolderName + "\" + $TableName + "-R1.txt";
-    $OutPath = $config.outRoot + "\" + $FolderName + "\" + $TableName + "-ALTER.txt";
+    if(!(Test-Path -Path $config.target)) {
+        New-Item -ItemType Directory -Path $config.target | Out-Null
+    }
+
+    $SrcPath = $config.outRoot + "\" + $FolderName + "\" + $TableName + ".txt";
+    $OutPath = $config.target + "\" + $TableName + "-ALTER.txt";
 
     Write-Verbose -Message "Source: $SrcPath"
     Write-Verbose -Message "Output: $OutPath"
@@ -49,7 +53,8 @@
             if($Cnt -gt 0) {
                 $Contents += "`n"
             }
-            $Contents += "ALTER TABLE $TableName DROP COLUMN " + $Col.Substring(0,20).trim() + ";"
+            $Tname = $TableName.Replace("-R1", "");
+            $Contents += "ALTER TABLE $TName DROP COLUMN " + $Col.Substring(0,20).trim() + ";"
 
             $Cnt++;
         }
@@ -58,7 +63,9 @@
     if($OutType -eq "C") {
         Write-Host $Contents
     } else {
-        $Contents | Out-File -FilePath $OutPath
+        if($Cnt -gt 0) {
+            $Contents | Out-File -FilePath $OutPath
+        }
     }
 
 }
