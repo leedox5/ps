@@ -1,0 +1,317 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta name="robots" content="all" /><!-- 검색엔진이 이문서를 접근 링크할수 있음 / -->
+		<meta charset="utf-8"><!-- 해당 문서의 언어 설정 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"><!-- IE 중 최신 표준 문서로 렌더링모드 설정 / ex ) content="IE=9" IE9 표준모드 렌더링 -->
+		<meta name="keywords" content="캐디안, cadian, 인텔리코리아">
+		<meta name="format-detection" content="telephone=no"/>
+		<link href="/common/css/reset.css" type="text/css" rel="stylesheet">
+		<link href="/common/css/style.css" type="text/css" rel="stylesheet">
+		<!-- jQuery -->
+		<script type="text/javascript" src="/common/js/jQuery/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="/common/js/jQuery/plugIn/jquery-tmpl-master/jquery.tmpl.js" crossorigin="anonymous"></script>
+		<!-- jmpress plugin -->
+		<script type="text/javascript" src="/common/js/common.js?v1.17"></script>
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+		<script type="text/javascript">
+			document.domain = 'cadian.com';
+		</script>
+		<title>기본제품군 뷰</title>
+			<script type="text/javascript">
+				jQuery(document).ready(function(){
+					callAjaxLocal( 'mode=view&pdtIdx=57&pdtType=pdt1&cate=54', '/_json/product/product.json.asp');
+				});
+
+				function callBackData( resultData ){
+					if ( resultData.Articles.length > 0 ){
+						jQuery('#txtPdtSpec').html( resultData.Articles[0].pdtSpec );
+						jQuery('#txtpPdtCategoryName').text( resultData.Articles[0].pdtCategoryName );
+
+						jQuery('#txtPdtName').text( resultData.Articles[0].pdtName +' '+ resultData.Articles[0].kName );
+						jQuery('#txtDevCorp').text( resultData.Articles[0].devCorp );
+						jQuery('#txtPdtBase').text( resultData.Articles[0].pdtBase );
+						jQuery('#txtPdtImport').text( resultData.Articles[0].pdtImport );
+						jQuery('#txtPdtExport').text( resultData.Articles[0].pdtExport );
+						jQuery('#txtPdtLicense').text( resultData.Articles[0].pdtLicense );
+
+						jQuery('#txtOS').text( resultData.Articles[0].OS );
+						jQuery('#txtCPU').text( resultData.Articles[0].CPU );
+						jQuery('#txtMEMORY').text( resultData.Articles[0].MEMORY );
+						jQuery('#attachFile').text( resultData.Articles[0].attachFile );
+						jQuery('#manual').text( resultData.Articles[0].manual );
+						if(resultData.Articles[0].proImg) jQuery('#proImg').html( "<img src='/_upload/Product/"+resultData.Articles[0].proImg+"'>" );
+						jQuery('#Evaluation32bit').text( resultData.Articles[0].Evaluation32bit );
+						jQuery('#Evaluation64bit').text( resultData.Articles[0].Evaluation64bit );
+
+
+
+						jQuery('#txtLicense').text( resultData.Articles[0].License );
+						console.log( resultData.Articles[0]);
+						jQuery('#txtSaleAmount').text( formatNumber( resultData.Articles[0].saleAmount, 3 ) +'원' );
+						jQuery('#txtAmount').text( formatNumber( resultData.Articles[0].Amount, 3 ) +'원' );
+						if(resultData.Articles[0].Amount<10) { jQuery('#txtAmount').text("문의"); }
+						jQuery('#txtContents').html( resultData.Articles[0].Contents.replace(/\n/g, '<br/>').replace(/\t/g, '&nbsp;&nbsp;') );
+						//resizeImage( 'txtContents', '100%' );
+
+					} else {
+						alert( '제품이 존재하지 않습니다.' );
+						location.href = './list.asp';
+					}
+				}
+			</script>
+		</head>
+
+
+		<div id="wrap">
+
+			<div class="lnbWrap">
+				<h1><a href="/category/"><img src ="/common/img/h1_logo.png" alt="로고"/></a></h1>
+				<ul class="lnbbox">
+					<!-- <li><a href="#" class="on depth1">홈페이지 접속집계</a>
+						<ul class="dep">
+							<li><a href="/visit/chart.asp">접속자 수 집계</a></li>
+							<li><a href="/visit/chart2.asp">접속자 통계</a></li>
+							<li><a href="/visit/record.asp">접속 기록</a></li>
+						</ul>
+					</li> -->
+					<li><a href="/category/" class="on">카테고리 관리</a>
+					<li><a href="#" class="on depth1">제품소개</a>
+						<ul class="dep">
+							<li><a href="/product/list.asp">제품관리</a></li>
+							<li><a href="/product/us_list.asp">[영문] 제품관리</a></li>
+						</ul>
+					</li>
+					<li><a href="#" class="on depth1">고객지원</a>
+						<ul class="dep">
+							<li><a href="/cs/faq_list.asp">자주하는 질문</a></li>
+							<li><a href="/cs/qna_list.asp">질문과 답변</a></li>
+							<li><a href="/cs/file_list.asp">자료실</a></li>
+							<li><a href="/cs/movie_list.asp">동영상강좌</a></li>
+							<li><a href="/cs/Edu_list.asp">CAD 교육신청</a></li>
+							<li><a href="/cs/edu_stats.asp">교육신청 (사이트 접촉 경로) 통계</a></li>
+							<li><a href="/cs/us_faq_list.asp">[영문] 자주하는 질문</a></li>
+							<li><a href="/cs/us_qna_list.asp">[영문] 질문과 답변</a></li>
+							<li><a href="/cs/us_file_list.asp">[영문] 자료실</a></li>
+							<li><a href="/cs/us_movie_list.asp">[영문] 동영상강좌</a></li>
+						</ul>
+					</li>
+					<li><a href="#" class="on depth1">커뮤니티</a>
+						<ul class="dep">
+							<li><a href="/community/news_list.asp">뉴스 &amp; 이슈</a></li>
+							<li><a href="/community/sw_list.asp">캐드 불법SW 단속상담</a></li>
+							<li><a href="/community/us_news_list.asp">[영문] 뉴스 &amp; 이슈</a></li>
+						</ul>
+					</li>
+	
+					<li><a href="#" class="on depth1">문의</a>
+						<ul class="dep">
+							<li><a href="/etc/partner_list.asp">협력사 문의</a></li>
+							<li><a href="/etc/protection_apply_record.asp">영업보호 접수내역</a></li>
+						</ul>
+					</li>
+					<li><a href="#" class="on depth1">견적요청</a>
+						<ul class="dep">
+							<li><a href="/etc/auto_estimate_list.asp">자동 견적</a></li>
+							<li><a href="/etc/auto_estimate_pro.asp">자동 견적 품목 관리</a></li>
+							<li><a href="/etc/Product_Estimate_list.asp">온라인 견적</a></li>
+							<li><a href="/etc/Software_Estimate_list.asp">용역개발 견적</a></li>
+							<li><a href="/etc/Product_Family.asp">제품군 및 제품 관리</a></li>
+							<li><a href="/etc/us_Product_Family.asp">[영문] 제품군 및 제품 관리</a></li>
+						</ul>
+					</li>
+					<li><a href="#" class="on depth1">회원 관리</a>
+						<ul class="dep">
+							<li><a href="/payment/list.asp">결제내역 관리</a></li>
+							<li><a href="/payment/us_list.asp">[영문] 결제내역 관리</a></li>
+						</ul>
+					</li>
+					<li><a href="#" class="on depth1">학생용버전 다운로드 신청</a>
+						<ul class="dep">
+							<li><a href="/student/apply_list.asp">학생용버전 다운로드 신청내역</a></li>
+							<li><a href="/student/student_file.asp">학생용버전 다운로드 파일 관리</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="contWrap">
+
+				<div class="utill">
+					<ul>
+						<li>캐디안 관리자님 환영합니다.</li>
+						<li><a href="/logout.asp" class="btn_type02">로그아웃</a></li>
+						<li><a href="/admin/modify.asp" class="btn_type03">정보수정</a></li>
+						<li><a href="//www.cadian.com" target="_blank" class="btn_type01">홈페이지 바로가기</a></li>
+					</ul>
+				</div>
+				<div class="contbox">
+					<h2>기본제품군 보기</h2>
+					<ul class="breadcrumb">
+						<li>HOME</li>
+						<li>제품소개</li>
+						<li>기본제품군 보기</li>
+					</ul>
+
+					<ul class="btn_set">
+						<li><a href="write.asp?idx=57&amp;cate=54&amp;pdtType=pdt1" class="btn_type02 btnModify">수정</a></li>
+						<li><a href="list.asp?cate=54&amp;pdtType=pdt1" class="btn_type03">목록</a></li>
+					</ul>
+
+					<div class="content">
+						<h3 id="txtBbsName"></h3>
+
+							<table class="tableType" summary="">
+								<caption></caption>
+
+								<colgroup> <!-- 테이블 width값 -->
+									<col width="15%">
+									<col width="*">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>카테고리</th>
+										<td class="left" id="txtpPdtCategoryName"></td>
+									</tr>
+									<tr>
+										<th>제품특징</th>
+										<td class="left"><ul id="txtPdtSpec"></ul></td>
+									</tr>
+									<tr>
+										<th>제품이미지</th>
+										<td class="left" id="proImg"></td>
+									</tr>
+								</tbody>
+							</table>
+
+							<!-- 제품사양 -->
+							<h4 class="mh4">제품사양</h4>
+							<table class="tableType" summary="">
+								<caption></caption>
+
+								<colgroup> <!-- 테이블 width값 -->
+									<col width="15%">
+									<col width="*">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>제품명</th>
+										<td class="left" id="txtPdtName"></td>
+									</tr>
+									<tr>
+										<th>개발사</th>
+										<td class="left" id="txtDevCorp"></td>
+									</tr>
+									<tr>
+										<th>베이스</th>
+										<td class="left" id="txtPdtBase"></td>
+									</tr>
+									<tr>
+										<th>IMPORT</th>
+										<td class="left" id="txtPdtImport"></td>
+									</tr>
+									<tr>
+										<th>EXPORT</th>
+										<td class="left" id="txtPdtExport"></td>
+									</tr>
+									<tr>
+										<th>라이센스</th>
+										<td class="left" id="txtPdtLicense"></td>
+									</tr>
+								</tbody>
+							</table>
+
+							<!-- 하드웨어 권장사양 -->
+							<h4 class="mh4">하드웨어 권장사양</h4>
+							<table class="tableType" summary="">
+								<caption></caption>
+
+								<colgroup> <!-- 테이블 width값 -->
+									<col width="15%">
+									<col width="*">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>OS</th>
+										<td class="left" id="txtOS"></td>
+									</tr>
+									<tr>
+										<th>CPU</th>
+										<td class="left" id="txtCPU"></td>
+									</tr>
+									<tr>
+										<th>메모리</th>
+										<td class="left" id="txtMEMORY"></td>
+									</tr>
+									<tr>
+										<th>제품 사양서</th>
+										<td class="left" id="attachFile"></td>
+									</tr>
+									<tr>
+										<th>메뉴얼</th>
+										<td class="left" id="manual"></td>
+									</tr>
+									<tr>
+										<th>평가판 32bit</th>
+										<td class="left" id="Evaluation32bit"></td>
+									</tr>
+									<tr>
+										<th>평가판 64bit</th>
+										<td class="left" id="Evaluation64bit"></td>
+									</tr>
+								</tbody>
+							</table>
+
+							<!-- 금액 -->
+							<h4 class="mh4">가격</h4>
+							<table class="tableType" summary="">
+								<caption></caption>
+
+								<colgroup> <!-- 테이블 width값 -->
+									<col width="15%">
+									<col width="*">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th>제품 용도</th>
+										<td class="left" id="txtLicense"></td>
+									</tr>
+									<tr>
+										<th>정상 가격</th>
+										<td class="left" id="txtSaleAmount"></td>
+									</tr>
+									<tr>
+										<th>할인 가격</th>
+										<td class="left" id="txtAmount"></td>
+									</tr>
+									<tr>
+										<th>내용</th>
+										<td class="left" id="txtContents"></td>
+									</tr>
+								</tbody>
+							</table>
+					</div><!-- end of .content -->
+
+					<ul class="btn_set">
+						<li><a href="write.asp?idx=57&amp;cate=54&amp;pdtType=pdt1" class="btn_type02 btnModify">수정</a></li>
+						<li><a href="list.asp?cate=54&amp;pdtType=pdt1" class="btn_type03">목록</a></li>
+					</ul>
+
+				</div><!-- end of .contbox -->
+			</div><!-- end of .contWrap -->
+
+
+			<div class="footer" style="clear:both;">
+				<address>
+				<p>Copyrightⓒ (주)인텔리코리아. All Rights Reserved.</p>
+				</address>
+			</div>
+			<!-- end of #footer -->
+		</div><!-- end of #wrap -->
+	</body>
+</html>
