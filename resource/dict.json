@@ -1,62 +1,62 @@
 ﻿[
-    {
-        "col":  "paymentIdx",
-        "desc":  "인덱스"
-    },
-    {
-        "col":  "oid",
-        "desc":  "O 아이디"
-    },
-    {
-        "col":  "tid",
-        "desc":  "T 아이디"
-    },
-    {
-        "col":  "userId",
-        "desc":  "사용자 ID"
-    },
-    {
-        "col":  "productIdx",
-        "desc":  "PRODUCTIDX"
-    },
-    {
-        "col":  "productCnt",
-        "desc":  "PRODUCTCNT"
-    },
-    {
-        "col":  "productPrice",
-        "desc":  "PRODUCTPRICE"
-    },
-    {
-        "col":  "agree",
-        "desc":  "AGREE"
-    },
-    {
-        "col":  "ZipCode",
-        "desc":  "ZIPCODE"
-    },
-    {
-        "col":  "addressDetail",
-        "desc":  "ADDRESSDETAIL"
-    },
-    {
-        "col":  "EmailAgree",
-        "desc":  "EMAILAGREE"
-    },
-    {
-        "col":  "onlineAD",
-        "desc":  "ONLINEAD"
-    },
-    {
-        "col":  "rDate",
-        "desc":  "RDATE"
-    },
-    {
-        "col":  "resultCode",
-        "desc":  "결과 코드"
-    },
-    {
-        "col":  "resultMsg",
-        "desc":  "결과 메세지"
-    }
+  {
+    "col": "paymentIdx",
+    "desc": "인덱스"
+  },
+  {
+    "col": "oid",
+    "desc": "O 아이디"
+  },
+  {
+    "col": "tid",
+    "desc": "T 아이디"
+  },
+  {
+    "col": "userId",
+    "desc": "사용자 ID"
+  },
+  {
+    "col": "productIdx",
+    "desc": "PRODUCTIDX"
+  },
+  {
+    "col": "productCnt",
+    "desc": "PRODUCTCNT"
+  },
+  {
+    "col": "productPrice",
+    "desc": "제품 가격"
+  },
+  {
+    "col": "agree",
+    "desc": "AGREE"
+  },
+  {
+    "col": "ZipCode",
+    "desc": "ZIPCODE"
+  },
+  {
+    "col": "addressDetail",
+    "desc": "주소 상세"
+  },
+  {
+    "col": "EmailAgree",
+    "desc": "EMAILAGREE"
+  },
+  {
+    "col": "onlineAD",
+    "desc": "ONLINEAD"
+  },
+  {
+    "col": "rDate",
+    "desc": "등록일"
+  },
+  {
+    "col": "resultCode",
+    "desc": "결과 코드"
+  },
+  {
+    "col": "resultMsg",
+    "desc": "결과 메세지"
+  }
 ]

@@ -25,7 +25,7 @@ function Get-Words {
         if ($s -cmatch "[A-Z]") {
             $mt = $true
             #Write-Host ' Matched!' $mt
-            if($cnt -gt 0) {
+            if ($cnt -gt 0) {
                 if ($mt) {
                     $str1 += ","
                 }
@@ -47,20 +47,22 @@ function Get-Words {
     $cnt = 0;
     $found = $false
 
-    foreach($colWord in $ColWords) {
-        $w = $word | Where { $_.word -eq $colWord}
+    foreach ($colWord in $ColWords) {
+        #$w = $word | Where { $_.word -eq $colWord}
+        $w = Get-LeedoxWord $colWord
         #Write-Host $colWord -NoNewline
         #Write-Host $cnt -NoNewline
-        if($found) {
+        if ($found) {
             $desc += " "
         }
 
-        if($w) {
+        if ($w) {
             #Write-Host "Found!"
             $found = $true
-            $desc += $w.meaning    
+            $desc += $w.meaning1    
             $cnt++
-        } else {
+        }
+        else {
             #Write-Host "Not found"
             $found = $false
         }
