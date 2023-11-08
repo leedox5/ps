@@ -1,0 +1,20 @@
+<td class="left" id="txtpPdtCategoryName"></td>    <th>카테고리</th>
+<td class="left"><ul id="txtPdtSpec"></ul></td>    <th>제품특징</th>
+<td class="left" id="proImg"></td>                 <th>제품이미지</th>
+<td class="left" id="txtPdtName"></td>             <th>제품명</th>
+<td class="left" id="txtDevCorp"></td>             <th>개발사</th>
+<td class="left" id="txtPdtBase"></td>             <th>베이스</th>
+<td class="left" id="txtPdtImport"></td>           <th>IMPORT</th>
+<td class="left" id="txtPdtExport"></td>           <th>EXPORT</th>
+<td class="left" id="txtPdtLicense"></td>          <th>라이센스</th>
+<td class="left" id="txtOS"></td>                  <th>OS</th>
+<td class="left" id="txtCPU"></td>                 <th>CPU</th>
+<td class="left" id="txtMEMORY"></td>              <th>메모리</th>
+<td class="left" id="attachFile"></td>             <th>제품 사양서</th>
+<td class="left" id="manual"></td>                 <th>메뉴얼</th>
+<td class="left" id="Evaluation32bit"></td>        <th>평가판 32bit</th>
+<td class="left" id="Evaluation64bit"></td>        <th>평가판 64bit</th>
+<td class="left" id="txtLicense"></td>             <th>제품 용도</th>
+<td class="left" id="txtSaleAmount"></td>          <th>정상 가격</th>
+<td class="left" id="txtAmount"></td>              <th>할인 가격</th>
+<td class="left" id="txtContents"></td>            <th>내용</th>

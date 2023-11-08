@@ -1,0 +1,20 @@
+txtpPdtCategoryName            카테고리
+txtPdtSpec                     제품특징
+proImg                         제품이미지
+txtPdtName                     제품명
+txtDevCorp                     개발사
+txtPdtBase                     베이스
+txtPdtImport                   IMPORT
+txtPdtExport                   EXPORT
+txtPdtLicense                  라이센스
+txtOS                          OS
+txtCPU                         CPU
+txtMEMORY                      메모리
+attachFile                     제품 사양서
+manual                         메뉴얼
+Evaluation32bit                평가판 32bit
+Evaluation64bit                평가판 64bit
+txtLicense                     제품 용도
+txtSaleAmount                  정상 가격
+txtAmount                      할인 가격
+txtContents                    내용

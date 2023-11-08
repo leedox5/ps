@@ -1,0 +1,20 @@
+pPdtCategoryName               카테고리
+PdtSpec                        제품특징
+proImg                         제품이미지
+PdtName                        제품명
+DevCorp                        개발사
+PdtBase                        베이스
+PdtImport                      IMPORT
+PdtExport                      EXPORT
+PdtLicense                     라이센스
+OS                             OS
+CPU                            CPU
+MEMORY                         메모리
+attachFile                     제품 사양서
+manual                         메뉴얼
+Evaluation32bit                평가판 32bit
+Evaluation64bit                평가판 64bit
+License                        제품 용도
+SaleAmount                     정상 가격
+Amount                         할인 가격
+Contents                       내용
