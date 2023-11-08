@@ -9,6 +9,11 @@ function Get-Words {
 
     $src = (Get-Location).Path
     $word = Get-Content $src\resource\word.json | ConvertFrom-Json
+    
+    # todo word를 바로 받아오도록 해야함
+    #$res = Invoke-RestMethod -Uri "http://leedox.kr/book/api/word/type" 
+    #$word = $res.data
+
     $arr = $Str.ToCharArray()
 
     $str1 = ""
