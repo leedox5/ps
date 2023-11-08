@@ -1,0 +1,30 @@
+﻿[
+    {
+        "word":  "product",
+        "meaning":  "제품"
+    },
+    {
+        "word":  "type",
+        "meaning":  "형태"
+    },
+    {
+        "word":  "name",
+        "meaning":  "이름"
+    },
+    {
+        "word":  "attach",
+        "meaning":  "첨부"
+    },
+    {
+        "word":  "file",
+        "meaning":  "파일"
+    },
+    {
+        "word":  "agree",
+        "meaning":  "동의"
+    },
+    {
+        "word":  "zipcode",
+        "meaning":  "우편번호"
+    }
+]
