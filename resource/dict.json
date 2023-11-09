@@ -16,14 +16,6 @@
     "desc": "사용자 ID"
   },
   {
-    "col": "productIdx",
-    "desc": "PRODUCTIDX"
-  },
-  {
-    "col": "productCnt",
-    "desc": "PRODUCTCNT"
-  },
-  {
     "col": "productPrice",
     "desc": "제품 가격"
   },
@@ -41,15 +33,31 @@
   },
   {
     "col": "EmailAgree",
-    "desc": "EMAILAGREE"
+    "desc": "이메일 동의"
   },
   {
     "col": "onlineAD",
-    "desc": "ONLINEAD"
+    "desc": "온라인 AD"
   },
   {
     "col": "rDate",
     "desc": "등록일"
+  },
+  {
+    "col": "JCNumber",
+    "desc": "JC 번호"
+  },
+  {
+    "col": "sp_JCNumber",
+    "desc": "SP JC 번호"
+  },
+  {
+    "col": "TermsYN",
+    "desc": "TERMS 여부"
+  },
+  {
+    "col": "goPayMethod",
+    "desc": "결제 방법"
   },
   {
     "col": "resultCode",

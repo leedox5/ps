@@ -3,6 +3,7 @@ function Get-LeedoxWord {
         [Parameter(Mandatory, Position = 0)]
         [string]$Key
     )
+    $Key = "Etc."
     $base = "http://leedox.kr/book/api/word/"
     $uri = $base + $Key
 

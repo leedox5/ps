@@ -1,0 +1,4 @@
+code_cat                  8                       W code_cat                      코드 종류
+code_value               10                       W code_value                    코드 값
+code_desc                10                       W code_desc                     코드 설명
+code_order                2                       W code_order                    코드 순서

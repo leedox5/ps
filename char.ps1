@@ -6,6 +6,8 @@ function Get-Words {
     )
     #$Str = "productType"
     #$Str = "AttachFileName"
+    #$Str = "code_cat"
+    #$Str = "Etc_Idx"
 
     $src = (Get-Location).Path
     $word = Get-Content $src\resource\word.json | ConvertFrom-Json
@@ -27,7 +29,13 @@ function Get-Words {
             #Write-Host ' Matched!' $mt
             if ($cnt -gt 0) {
                 if ($mt) {
-                    $str1 += ","
+                    #Write-Host $str1 $s
+                    if ($str1.EndsWith("_")) {
+
+                    }
+                    else {
+                        $str1 += ","
+                    }
                 }
             }
             $str1 += $s
@@ -40,6 +48,7 @@ function Get-Words {
         #Write-Host $str1
         $cnt++
     }
+    $str1 = $str1.Replace("_", ",")
 
     $ColWords = $str1.Split(",")
 
