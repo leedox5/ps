@@ -12,19 +12,24 @@ function Invoke-ColumnUsage {
 
     .EXAMPLE
         Invoke-ColumnUsage admin\etc C
+        Invoke-ColumnUsage ROOT C
     #>
 
-        [CmdletBinding()]
-        param (
-            [Parameter(Mandatory, Position=0)]
-            [string]$FolderName,
-            [Parameter(Mandatory, Position=2)]
-            [string]$OutType
-        )
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory, Position=0)]
+        [string]$FolderName,
+        [Parameter(Mandatory, Position=2)]
+        [string]$OutType
+    )
 
-        $config = Get-Content C:\DBStat\config.json | ConvertFrom-Json;
+    $config = Get-Content C:\DBStat\config.json | ConvertFrom-Json;
 
-    $srcPath = $config.outRoot + "\" + $FolderName + "\TB*.txt"
+    if($FolderName -eq "ROOT") {
+        $srcPath = $config.outRoot + "\TB*.txt"
+    } else {
+        $srcPath = $config.outRoot + "\" + $FolderName + "\TB*.txt"
+    }
 
     $src = @(Get-ChildItem -Path $srcPath -Exclude "*R1.txt")
 

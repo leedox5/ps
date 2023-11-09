@@ -15,9 +15,8 @@
     F  - 파일 출력
 
 .EXAMPLE
-    Get-ColumnUsage community TB_BBS C
+    Get-ColumnUsage ROOT TB_BBS C
 #>
-
     [CmdletBinding()]
     param (
         [Parameter(Mandatory, Position=0)]
@@ -34,8 +33,13 @@
 
     $SrcPathAsp = $config.adminSrcRoot + "*.asp";
 
-    $SrcPath = $config.outRoot + "\" + $FolderName + "\" + $TableName + ".txt";
-    $OutPath = $config.outRoot + "\" + $FolderName + "\" + $TableName + "-R1.txt";
+    if($FolderName -eq "ROOT") {
+        $SrcPath = $config.outRoot + "\" + $TableName + ".txt";
+        $OutPath = $config.outRoot + "\" + $TableName + "-R1.txt";
+    } else {
+        $SrcPath = $config.outRoot + "\" + $FolderName + "\" + $TableName + ".txt";
+        $OutPath = $config.outRoot + "\" + $FolderName + "\" + $TableName + "-R1.txt";
+    }
 
     Write-Verbose -Message "AspSource: $SrcPathAsp"
     Write-Verbose -Message "Source: $SrcPath"

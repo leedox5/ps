@@ -15,7 +15,7 @@
     F  - 파일 출력
 
 .EXAMPLE
-    Get-Column community NEW_CADIAN C
+    Get-Column ROOT NEW_CADIAN C
 #>
 
     [CmdletBinding()]
@@ -30,14 +30,22 @@
 
     $config = Get-Content C:\DBStat\config.json  | ConvertFrom-Json;
 
-    $SrcFilePath = $config.outRoot + "\" + $FolderName + "\Tables-" + $DbName + "-R1.txt";
+    if($FolderName -eq "ROOT") {
+        $SrcFilePath = $config.outRoot + "\Tables-" + $DbName + "-R1.txt";
+    } else {
+        $SrcFilePath = $config.outRoot + "\" + $FolderName + "\Tables-" + $DbName + "-R1.txt";
+    }
 
     $sqlPath = $PSScriptRoot + "\col.sql"
 
     foreach($Table in Get-Content $SrcFilePath) {
         if($Table -match "<=====") {
             $TableName = $Table.Substring(0, 20).trim()
-            $OutFilePath = $config.outRoot + "\" + $FolderName + "\" + $TableName + ".txt"
+            if($FolderName -eq "ROOT") {
+                $OutFilePath = $config.outRoot + "\" + $TableName + ".txt"
+            } else {
+                $OutFilePath = $config.outRoot + "\" + $FolderName + "\" + $TableName + ".txt"
+            }
             if($OutType -eq "C") {
                 sqlcmd -U $config.dbUser -P $config.dbPass -d $DbName -v NAME = $TableName -h -1 -i $sqlPath
             } else {
